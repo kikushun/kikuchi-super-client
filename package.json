@@ -8,7 +8,11 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0"
+    "@mdi/js": "^7.2.96",
+    "nuxt": "3.0.0",
+    "sass": "^1.60.0",
+    "vite-plugin-vuetify": "^1.0.2",
+    "vuetify": "^3.1.4"
   },
   "dependencies": {
     "@nuxtjs/device": "^3.0.0",

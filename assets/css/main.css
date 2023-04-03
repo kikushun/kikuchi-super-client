@@ -83,3 +83,86 @@
   transition: 1.5s;
   transform: rotate(360deg);
 }
+
+/* font-size */
+.text-10 {
+  font-size: 10px !important;
+}
+
+.text-10b {
+  font-size: 10px !important;
+  font-weight: bold !important;
+}
+
+.text-12 {
+  font-size: 12px !important;
+}
+
+.text-12b {
+  font-size: 12px !important;
+  font-weight: bold !important;
+}
+
+.text-14 {
+  font-size: 14px !important;
+}
+
+.text-14b {
+  font-size: 14px !important;
+  font-weight: bold !important;
+}
+
+.text-16 {
+  font-size: 16px !important;
+}
+
+.text-16b {
+  font-size: 16px !important;
+  font-weight: bold !important;
+}
+
+.text-18 {
+  font-size: 18px !important;
+}
+
+.text-18b {
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+.text-20 {
+  font-size: 20px !important;
+}
+
+.text-20b {
+  font-size: 20px !important;
+  font-weight: bold !important;
+}
+
+.text-24 {
+  font-size: 24px !important;
+}
+
+.text-24b {
+  font-size: 24px !important;
+  font-weight: bold !important;
+}
+
+.text-28b {
+  font-size: 28px !important;
+  font-weight: bold !important;
+}
+
+.text-32 {
+  font-size: 32px !important;
+}
+
+.text-32b {
+  font-size: 32px !important;
+  font-weight: bold !important;
+}
+
+.text-40b {
+  font-size: 40px !important;
+  font-weight: bold !important;
+}

@@ -1,11 +1,13 @@
 <template>
   <div class="base-background-color">
-    <slot />
+    <v-app>
+      <slot />
+    </v-app>
   </div>
 </template>
 <style scoped>
 .base-background-color {
-  background-color: #fff5e1;
+  background-color: #fffbf4;
 }
 
 .page-enter-active,
