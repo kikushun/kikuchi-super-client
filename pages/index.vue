@@ -25,14 +25,14 @@ const showNumClass = computed(() => (num: number) => {
     <template v-slot:append>
       <base-animation v-if="$device.isMobile"><v-btn :icon="mdiMenu" /></base-animation>
 
-      <div v-if="$device.isDesktop" class="flex items-center h-24 px-2">
+      <div v-if="$device.isDesktop" class="flex items-center h-24 pl-2 pr-16">
         <base-animation v-ripple align="center" class="cursor-pointer uru-menu">
           <v-icon size="32px" color="#e4e284" class="uru-menu-img">{{ mdiEmail }}</v-icon>
           <h2 class="text-urubrown text-20b">お問い合わせ</h2>
         </base-animation>
       </div>
     </template>
-    <v-row no-gutters>
+    <v-row no-gutters :class="{ 'px-16': $device.isDesktop }">
       <v-col cols="auto">
         <v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_logo.png" class="w-24 h-24" />
       </v-col>
@@ -104,7 +104,8 @@ const showNumClass = computed(() => (num: number) => {
       <img src="https://dvso56c4dpyp.cloudfront.net/carousel_mobile_1.png" :class="showNumClass(0)" class="w-full z-20" />
       <img src="https://dvso56c4dpyp.cloudfront.net/carousel_mobile_2.png" :class="showNumClass(1)" class="w-full z-20" />
     </base-animation>
-
+  </v-container>
+  <v-container :fluid="$device.isMobile" :class="{ 'px-8': $device.isDesktop, 'px-2': $device.isMobile }">
     <v-row no-gutters :class="{ 'mt-10': $device.isMobile }">
       <v-col :cols="$device.isDesktop ? 6 : 12">
         <base-animation class="px-4">
