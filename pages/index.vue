@@ -69,7 +69,7 @@ const goToEvent = (id: number) => {
               <v-row no-gutters>
                 <v-col>代表メッセージ</v-col>
                 <v-col cols="auto">
-                  <v-btn to="/representative-greeting" variant="tonal" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
+                  <v-btn to="/representative-greeting" variant="text" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
                 </v-col>
               </v-row>
             </h2>
@@ -96,7 +96,7 @@ const goToEvent = (id: number) => {
               <v-row no-gutters>
                 <v-col>お知らせ</v-col>
                 <v-col cols="auto">
-                  <v-btn to="/notice" variant="tonal" size="small" flat class="text-urubrown text-14b">一覧画面へ</v-btn>
+                  <v-btn to="/notice" variant="text" size="small" flat class="text-urubrown text-14b">一覧画面へ</v-btn>
                 </v-col>
               </v-row>
             </h2>
@@ -128,7 +128,7 @@ const goToEvent = (id: number) => {
               <v-row no-gutters>
                 <v-col>理事紹介</v-col>
                 <v-col cols="auto">
-                  <v-btn to="/director-introduction" variant="tonal" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
+                  <v-btn to="/director-introduction" variant="text" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
                 </v-col>
               </v-row>
             </h2>
@@ -140,7 +140,7 @@ const goToEvent = (id: number) => {
               <v-row no-gutters>
                 <v-col>イベント情報</v-col>
                 <v-col cols="auto">
-                  <v-btn to="/event" variant="tonal" size="small" flat class="text-urubrown text-14b">一覧画面へ</v-btn>
+                  <v-btn to="/event" variant="text" size="small" flat class="text-urubrown text-14b">一覧画面へ</v-btn>
                 </v-col>
               </v-row>
             </h2>
@@ -172,7 +172,7 @@ const goToEvent = (id: number) => {
               <v-row no-gutters>
                 <v-col>寄付のお願い</v-col>
                 <v-col cols="auto">
-                  <v-btn to="/donation" variant="tonal" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
+                  <v-btn to="/donation" variant="text" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
                 </v-col>
               </v-row>
             </h2>

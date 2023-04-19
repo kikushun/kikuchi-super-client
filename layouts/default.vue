@@ -17,7 +17,7 @@ const drawer = ref(false);
     <v-app>
       <v-app-bar :elevation="0" height="24px" flat color="#fffbf494">
         <template v-slot:append>
-          <base-animation v-if="$device.isMobile"><v-btn :icon="mdiMenu" @click="drawer = !drawer" /></base-animation>
+          <base-animation v-if="$device.isMobile"><v-btn :icon="mdiMenu" @click="drawer = !drawer" color="#8c6d65" /></base-animation>
 
           <div v-if="$device.isDesktop" class="flex items-center h-24 pl-2 pr-16">
             <base-animation v-ripple align="center" class="cursor-pointer uru-menu" @click="goToContact()">
@@ -82,12 +82,12 @@ const drawer = ref(false);
         </v-row>
       </v-app-bar>
       <v-navigation-drawer v-model="drawer" temporary location="right">
-        <v-list nav class="mt-24">
-          <v-list-item class="text-20" v-ripple><nuxt-link to="/representative-greeting">代表メッセージ</nuxt-link></v-list-item>
-          <v-list-item class="text-20 text-urubrown" v-ripple><nuxt-link to="/director-introduction">理事紹介</nuxt-link></v-list-item>
-          <v-list-item class="text-20 text-urubrown" v-ripple><nuxt-link to="/notice">お知らせ</nuxt-link></v-list-item>
-          <v-list-item class="text-20 text-urubrown" v-ripple><nuxt-link to="/event">イベント情報</nuxt-link></v-list-item>
-          <v-list-item class="text-20 text-urubrown" v-ripple><nuxt-link to="/donation">寄付のお願い</nuxt-link></v-list-item>
+        <v-list nav class="mt-24 text-urubrown">
+          <v-list-item class="text-20" v-ripple><nuxt-link to="/representative-greeting" class="text-urubrown">代表メッセージ</nuxt-link></v-list-item>
+          <v-list-item class="text-20 text-urubrown" v-ripple><nuxt-link to="/director-introduction" class="text-urubrown">理事紹介</nuxt-link></v-list-item>
+          <v-list-item class="text-20 text-urubrown" v-ripple><nuxt-link to="/notice" class="text-urubrown">お知らせ</nuxt-link></v-list-item>
+          <v-list-item class="text-20 text-urubrown" v-ripple><nuxt-link to="/event" class="text-urubrown">イベント情報</nuxt-link></v-list-item>
+          <v-list-item class="text-20 text-urubrown" v-ripple><nuxt-link to="/donation" class="text-urubrown">寄付のお願い</nuxt-link></v-list-item>
         </v-list>
       </v-navigation-drawer>
       <slot />

@@ -16,15 +16,11 @@ const goToNotice = (id: number) => {
       <h2 class="title text-20b pl-2 py-1">お知らせ</h2>
       <v-list class="mt-8">
         <v-list-item v-for="notice in noticeList" :key="notice.id" v-ripple class="py-4 cursor-pointer notice" @click="goToNotice(notice.id)">
-          <v-list-item-content>
-            <v-list-item-title class="text-urubrown text-20b">
-              <v-row no-gutters class="text-18">
-                <v-col :cols="$device.isDesktop ? 'auto' : '12'" class="font-normal">{{ notice.postedDateDisplay }}</v-col>
-                <v-col :cols="$device.isDesktop ? 'auto' : '12'" :class="{ 'pl-4': $device.isDesktop }">{{ notice.title }}</v-col>
-              </v-row>
-            </v-list-item-title>
-            <v-list-item-subtitle class="text-urubrown text-18 pt-2">{{ notice.message }}</v-list-item-subtitle>
-          </v-list-item-content>
+          <v-row no-gutters class="text-urubrown">
+            <v-col :cols="$device.isDesktop ? 'auto' : '12'" class="text-18">{{ notice.postedDateDisplay }}</v-col>
+            <v-col :cols="$device.isDesktop ? 'auto' : '12'" :class="{ 'pl-4': $device.isDesktop }" class="pt-1 text-20b whitespace-nowrap text-ellipsis overflow-hidden">{{ notice.title }}</v-col>
+          </v-row>
+          <div class="text-urubrown text-18 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ notice.message }}</div>
         </v-list-item>
       </v-list>
     </base-animation>
