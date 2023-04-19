@@ -6,7 +6,7 @@ const { data: event } = await useFetch<Event>(`/events/${useRoute().params.id}`,
 <template>
   <v-container :fluid="$device.isMobile" :class="{ 'px-8': $device.isDesktop, 'px-2': $device.isMobile }" class="mt-20 pt-10">
     <base-animation class="px-4">
-      <base-goto title="お知らせ一覧画面に戻る" path="/event" />
+      <base-goto title="イベント一覧画面に戻る" path="/event" />
       <h2 class="title text-20b pl-2 py-1">イベント</h2>
       <v-card class="mt-8 pa-4" outlined>
         <div class="text-urubrown text-20b pb-4">{{ event?.title }}</div>
