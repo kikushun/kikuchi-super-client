@@ -33,4 +33,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  runtimeConfig: {
+    public: {
+      baseUrl: "https://af72wdiit6.ap-northeast-1.awsapprunner.com",
+    },
+  },
 });
