@@ -15,8 +15,8 @@ const showNumClass = computed(() => (num: number) => {
     transition: true,
     "duration-[4000ms]": true,
     "ease-in-out": true,
-    "opacity-0": num !== showNum.value,
-    "opacity-100": num === showNum.value,
+    "opacity-0": num !== showNum.value || num === 3,
+    "opacity-100": num === showNum.value || num === 3,
   };
 });
 
@@ -39,7 +39,22 @@ const goToEvent = (id: number) => {
 
 <template>
   <div>
-    <v-container fluid :class="{ 'px-8': $device.isDesktop, 'px-2': $device.isMobile }">
+    <!-- <template v-if="$device.isDesktop">
+      <base-animation class="relative desktop-carousel">
+        <img src="https://dvso56c4dpyp.cloudfront.net/c_1.png" :class="showNumClass(0)" class="h-1/2 z-20" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/c_2.png" :class="showNumClass(1)" class="h-1/2 z-20" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/c_3.png" :class="showNumClass(3)" class="h-1/2 z-20" />
+      </base-animation>
+    </template> -->
+
+    <template v-if="$device.isMobile">
+      <base-animation class="relative h-80">
+        <img src="https://dvso56c4dpyp.cloudfront.net/c_1.png" :class="showNumClass(0)" class="w-full z-20" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/c_2.png" :class="showNumClass(1)" class="w-full z-20" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/c_3.png" :class="showNumClass(3)" class="w-full z-20" />
+      </base-animation>
+
+      <!-- <v-container fluid :class="{ 'px-8': $device.isDesktop, 'px-2': $device.isMobile }">
       <base-animation v-if="$device.isDesktop" class="relative h-[70vh]">
         <div class="leading-loose pl-8 absolute h-full flex items-center text-urubrown text-20b z-30" align="center">
           一般社団法人うるの木では<br />
@@ -56,199 +71,170 @@ const goToEvent = (id: number) => {
         <img src="https://dvso56c4dpyp.cloudfront.net/carousel_7.png" :class="showNumClass(0)" class="h-full z-20" />
         <img src="https://dvso56c4dpyp.cloudfront.net/carousel_8.png" :class="showNumClass(1)" class="h-full z-20" />
       </base-animation>
-      <base-animation v-if="$device.isMobile" class="relative h-48 mt-20">
-        <img src="https://dvso56c4dpyp.cloudfront.net/carousel_mobile_1.png" :class="showNumClass(0)" class="w-full z-20" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/carousel_mobile_2.png" :class="showNumClass(1)" class="w-full z-20" />
-      </base-animation>
-    </v-container>
-    <v-container :fluid="$device.isMobile" :class="{ 'px-8': $device.isDesktop, 'px-2': $device.isMobile }">
-      <v-row no-gutters :class="{ 'mt-10': $device.isMobile }">
-        <v-col :cols="$device.isDesktop ? 6 : 12">
-          <base-animation class="px-4">
-            <h2 class="title text-20b pl-2 py-1">
-              <v-row no-gutters>
-                <v-col>代表メッセージ</v-col>
-                <v-col cols="auto">
-                  <v-btn to="/representative-greeting" variant="text" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
-                </v-col>
-              </v-row>
-            </h2>
-            <div class="mt-4">
-              <v-row no-gutters>
-                <v-col cols="4">
-                  <v-img src="https://dvso56c4dpyp.cloudfront.net/representative_greeting.jpeg" class="w-full" />
-                </v-col>
-                <v-col cols="8" class="text-urubrown pl-4" :class="{ 'text-18': $device.isDesktop, 'text-16': $device.isMobile, 'pb-4': $device.isMobile }">
+    </v-container> -->
+
+      <div class="top mt-20">
+        <div class="circle-1 pa-10">
+          <base-title>メッセージ</base-title>
+          <div class="leading-loose text-urubrown text-14b pt-4">
+            一般社団法人うるの木では 様々な事業活動を通じ、「多様性」の理解を推進し、個々の特性や環境の違いを「面白い」と思える心を育み、ともに成長し、ともに笑いあえる地域社会を創造する“ことを基本理念とし、医療ケアや障がいなど、どんな特性を持った子どもでも一度しかない子ども時代を子どもらしく駆けぬけて欲しいという願いを待ち、
+            子どもたちの居場所作りや家族支援，個々を認め合う地域作りに取り組んでいます。
+          </div>
+        </div>
+
+        <v-img src="https://www.kohoku-yochien.com/wp-content/themes/kohoku-yochien/assets/images/home/img_cartoon_05.gif" class="w-1/3"></v-img>
+
+        <v-container :fluid="$device.isMobile" :class="{ 'px-8': $device.isDesktop, 'px-2': $device.isMobile }">
+          <v-row no-gutters>
+            <v-col :cols="$device.isDesktop ? 6 : 12">
+              <base-animation class="px-4">
+                <base-title>代表メッセージ</base-title>
+                <v-img src="https://dvso56c4dpyp.cloudfront.net/representative_greeting.jpeg" class="w-full daihyo-messeage mt-4" />
+                <div class="text-white pl-8 pt-8 pb-8 text-18b daihyo-message-content">
                   代表理事 長岐 裕美<br />
                   株式会社ながき 夫婦経営<br />
                   ながき鍼灸整骨院 副院長<br />
                   鍼灸師/エステティシャン<br />
                   のびのび遊べる・つながる場<br />
                   wacca代表<br />
-                </v-col>
-              </v-row>
-            </div>
-          </base-animation>
-        </v-col>
-        <v-col :cols="$device.isDesktop ? 6 : 12">
-          <base-animation class="px-4">
-            <h2 class="title text-20b pl-2 py-1">
-              <v-row no-gutters>
-                <v-col>お知らせ</v-col>
-                <v-col cols="auto">
-                  <v-btn to="/notice" variant="text" size="small" flat class="text-urubrown text-14b">一覧画面へ</v-btn>
-                </v-col>
-              </v-row>
-            </h2>
-            <ul class="mt-4 text-urubrown notice-wrapper">
-              <li v-for="notice in noticeList" :key="`notice_${notice.id}`" class="notice mb-1 pa-1" v-ripple @click="goToNotice(notice.id)">
-                <v-row no-gutters class="cursor-pointer">
-                  <v-col cols="11">
-                    <v-row no-gutters class="text-16b">
-                      <v-col cols="5" class="text-14">{{ notice.postedDateDisplay }}</v-col>
-                      <v-col cols="7" class="whitespace-nowrap text-ellipsis overflow-hidden">{{ notice.title }}</v-col>
+                </div>
+              </base-animation>
+            </v-col>
+
+            <v-col :cols="$device.isDesktop ? 6 : 12">
+              <v-img src="https://www.kohoku-yochien.com/wp-content/themes/kohoku-yochien/assets/images/home/img_cartoon_11.png" class="w-1/4"></v-img>
+              <base-animation class="px-4 pt-10">
+                <base-title>お知らせ</base-title>
+                <ul class="mt-4 text-urubrown notice-wrapper">
+                  <li v-for="notice in noticeList" :key="`notice_${notice.id}`" class="notice mb-1 pa-1" v-ripple @click="goToNotice(notice.id)">
+                    <v-row no-gutters class="cursor-pointer">
+                      <v-col cols="11">
+                        <v-row no-gutters class="text-16b">
+                          <v-col cols="5" class="text-14">{{ notice.postedDateDisplay }}</v-col>
+                          <v-col cols="7" class="whitespace-nowrap text-ellipsis overflow-hidden">{{ notice.title }}</v-col>
+                        </v-row>
+                        <div class="text-16 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ notice.message }}</div>
+                      </v-col>
+                      <v-col cols="1">
+                        <div class="flex items-center h-12">
+                          <span class="dli-caret-circle-fill-right"></span>
+                        </div>
+                      </v-col>
                     </v-row>
-                    <div class="text-16 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ notice.message }}</div>
-                  </v-col>
-                  <v-col cols="1">
-                    <div class="flex items-center h-12">
-                      <span class="dli-caret-circle-fill-right"></span>
-                    </div>
-                  </v-col>
-                </v-row>
-              </li>
-            </ul>
-          </base-animation>
-        </v-col>
-      </v-row>
-      <v-row no-gutters>
-        <v-col :cols="$device.isDesktop ? 6 : 12">
-          <base-animation class="pa-4">
-            <h2 class="mt-8 title text-20b pl-2 py-1">
-              <v-row no-gutters>
-                <v-col>理事紹介</v-col>
-                <v-col cols="auto">
-                  <v-btn to="/director-introduction" variant="text" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
-                </v-col>
-              </v-row>
-            </h2>
-          </base-animation>
-        </v-col>
-        <v-col :cols="$device.isDesktop ? 6 : 12">
-          <base-animation class="pa-4">
-            <h2 class="mt-8 title text-20b pl-2 py-1">
-              <v-row no-gutters>
-                <v-col>イベント情報</v-col>
-                <v-col cols="auto">
-                  <v-btn to="/event" variant="text" size="small" flat class="text-urubrown text-14b">一覧画面へ</v-btn>
-                </v-col>
-              </v-row>
-            </h2>
-            <ul class="mt-4 text-urubrown event-wrapper">
-              <li v-for="eventData in eventList" :key="`event_${eventData.id}`" class="event mb-1 pa-1" v-ripple @click="goToEvent(eventData.id)">
-                <v-row no-gutters class="cursor-pointer">
-                  <v-col cols="11">
-                    <v-row no-gutters class="text-16b">
-                      <v-col cols="5" class="text-14">{{ eventData.insertDateDisplay }}</v-col>
-                      <v-col cols="7" class="whitespace-nowrap text-ellipsis overflow-hidden">{{ eventData.title }}</v-col>
+                  </li>
+                </ul>
+              </base-animation>
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col :cols="$device.isDesktop ? 6 : 12">
+              <base-animation class="pa-4">
+                <base-title>理事紹介</base-title>
+              </base-animation>
+            </v-col>
+            <v-col :cols="$device.isDesktop ? 6 : 12">
+              <base-animation class="pa-4">
+                <base-title>イベント情報</base-title>
+                <ul class="mt-4 text-urubrown event-wrapper">
+                  <li v-for="eventData in eventList" :key="`event_${eventData.id}`" class="event mb-1 pa-1" v-ripple @click="goToEvent(eventData.id)">
+                    <v-row no-gutters class="cursor-pointer">
+                      <v-col cols="11">
+                        <v-row no-gutters class="text-16b">
+                          <v-col cols="5" class="text-14">{{ eventData.insertDateDisplay }}</v-col>
+                          <v-col cols="7" class="whitespace-nowrap text-ellipsis overflow-hidden">{{ eventData.title }}</v-col>
+                        </v-row>
+                        <div class="text-16 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ eventData.content }}</div>
+                      </v-col>
+                      <v-col cols="1">
+                        <div class="flex items-center h-12">
+                          <span class="dli-caret-circle-fill-right"></span>
+                        </div>
+                      </v-col>
                     </v-row>
-                    <div class="text-16 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ eventData.content }}</div>
-                  </v-col>
-                  <v-col cols="1">
-                    <div class="flex items-center h-12">
-                      <span class="dli-caret-circle-fill-right"></span>
-                    </div>
-                  </v-col>
-                </v-row>
-              </li>
-            </ul>
-          </base-animation>
-        </v-col>
-      </v-row>
-      <v-row no-gutters>
-        <v-col :cols="$device.isDesktop ? 6 : 12">
-          <base-animation class="pa-4">
-            <h2 class="mt-8 title text-20b pl-2 py-1">
-              <v-row no-gutters>
-                <v-col>寄付のお願い</v-col>
-                <v-col cols="auto">
-                  <v-btn to="/donation" variant="text" size="small" flat class="text-urubrown text-14b">もっと見る</v-btn>
-                </v-col>
-              </v-row>
-            </h2>
-          </base-animation>
-        </v-col>
-        <v-col :cols="$device.isDesktop ? 6 : 12">
-          <base-animation class="pa-4">
-            <h2 class="mt-8 title text-20b pl-2 py-1">LINK</h2>
-          </base-animation>
-          <base-animation>
-            <a href="https://instagram.com/urunoki1101?igshid=YmMyMTA2M2Y=">
-              <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
-                <v-col cols="auto">
-                  <v-img src="https://dvso56c4dpyp.cloudfront.net/instagram_icon.png" class="w-10" />
-                </v-col>
-                <v-col class="text-20 text-urubrown pl-1 pt-1">うるの木</v-col>
-              </v-row>
-            </a>
+                  </li>
+                </ul>
+              </base-animation>
+            </v-col>
+          </v-row>
+          <v-row no-gutters>
+            <v-col :cols="$device.isDesktop ? 6 : 12">
+              <base-animation class="pa-4">
+                <base-title>寄付のお願い</base-title>
+              </base-animation>
+            </v-col>
+            <v-col :cols="$device.isDesktop ? 6 : 12">
+              <base-animation class="pa-4">
+                <base-title>リンク</base-title>
+              </base-animation>
+              <base-animation>
+                <a href="https://instagram.com/urunoki1101?igshid=YmMyMTA2M2Y=">
+                  <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
+                    <v-col cols="auto">
+                      <v-img src="https://dvso56c4dpyp.cloudfront.net/instagram_icon.png" class="w-10" />
+                    </v-col>
+                    <v-col class="text-20 text-urubrown pl-1 pt-1">うるの木</v-col>
+                  </v-row>
+                </a>
 
-            <a href="https://instagram.com/wacca1515?igshid=YmMyMTA2M2Y=">
-              <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
-                <v-col cols="auto">
-                  <v-img src="https://dvso56c4dpyp.cloudfront.net/instagram_icon.png" class="w-10" />
-                </v-col>
-                <v-col class="text-20 text-urubrown pl-1 pt-1">WACCA</v-col>
-              </v-row>
-            </a>
+                <a href="https://instagram.com/wacca1515?igshid=YmMyMTA2M2Y=">
+                  <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
+                    <v-col cols="auto">
+                      <v-img src="https://dvso56c4dpyp.cloudfront.net/instagram_icon.png" class="w-10" />
+                    </v-col>
+                    <v-col class="text-20 text-urubrown pl-1 pt-1">WACCA</v-col>
+                  </v-row>
+                </a>
 
-            <a href="https://www.kohoku-yochien.com">
-              <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
-                <v-col cols="auto">
-                  <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
-                </v-col>
-                <v-col class="text-20 text-urubrown pl-1 pt-1">港北幼稚園</v-col>
-              </v-row>
-            </a>
+                <a href="https://www.kohoku-yochien.com">
+                  <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
+                    <v-col cols="auto">
+                      <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
+                    </v-col>
+                    <v-col class="text-20 text-urubrown pl-1 pt-1">港北幼稚園</v-col>
+                  </v-row>
+                </a>
 
-            <a href="https://www.youyounomori.com">
-              <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
-                <v-col cols="auto">
-                  <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
-                </v-col>
-                <v-col class="text-20 text-urubrown pl-1 pt-1">ゆうゆうのもり幼保園</v-col>
-              </v-row>
-            </a>
+                <a href="https://www.youyounomori.com">
+                  <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
+                    <v-col cols="auto">
+                      <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
+                    </v-col>
+                    <v-col class="text-20 text-urubrown pl-1 pt-1">ゆうゆうのもり幼保園</v-col>
+                  </v-row>
+                </a>
 
-            <a href="https://oyako-cocon.com">
-              <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
-                <v-col cols="auto">
-                  <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
-                </v-col>
-                <v-col class="text-20 text-urubrown pl-1 pt-1">育児発達支援室ここん</v-col>
-              </v-row>
-            </a>
+                <a href="https://oyako-cocon.com">
+                  <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
+                    <v-col cols="auto">
+                      <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
+                    </v-col>
+                    <v-col class="text-20 text-urubrown pl-1 pt-1">育児発達支援室ここん</v-col>
+                  </v-row>
+                </a>
 
-            <a href="https://www.musubi.ne.jp">
-              <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
-                <v-col cols="auto">
-                  <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
-                </v-col>
-                <v-col class="text-20 text-urubrown pl-1 pt-1">訪問看護ステーションぶどう</v-col>
-              </v-row>
-            </a>
+                <a href="https://www.musubi.ne.jp">
+                  <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
+                    <v-col cols="auto">
+                      <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
+                    </v-col>
+                    <v-col class="text-20 text-urubrown pl-1 pt-1">訪問看護ステーションぶどう</v-col>
+                  </v-row>
+                </a>
 
-            <a href="https://nagaki-seikotsu.com">
-              <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
-                <v-col cols="auto">
-                  <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
-                </v-col>
-                <v-col class="text-20 text-urubrown pl-1 pt-1">ながき鍼灸整骨院</v-col>
-              </v-row>
-            </a>
-          </base-animation>
-        </v-col>
-      </v-row>
-    </v-container>
+                <a href="https://nagaki-seikotsu.com">
+                  <v-row v-ripple no-gutters class="px-4 py-2 cursor-pointer">
+                    <v-col cols="auto">
+                      <v-icon size="40px" color="urubrown">{{ mdiLinkBoxVariantOutline }}</v-icon>
+                    </v-col>
+                    <v-col class="text-20 text-urubrown pl-1 pt-1">ながき鍼灸整骨院</v-col>
+                  </v-row>
+                </a>
+              </base-animation>
+            </v-col>
+          </v-row>
+        </v-container>
+      </div>
+    </template>
   </div>
 </template>
 <style lang="postcss" scoped>
@@ -309,6 +295,7 @@ ul li {
 }
 .notice-wrapper {
   border-top: 1px solid #8c6d65;
+  background-color: rgba(255, 255, 255, 0.728);
 }
 
 .notice {
@@ -323,6 +310,7 @@ ul li {
 
 .event-wrapper {
   border-top: 1px solid #8c6d65;
+  background-color: rgba(255, 255, 255, 0.728);
 }
 
 .event {
@@ -344,5 +332,31 @@ ul li {
 }
 .uru-sub-menu:hover {
   color: #ffffff;
+}
+
+.top {
+  background-image: url(https://www.kohoku-yochien.com/wp-content/themes/kohoku-yochien/assets/images/backgrounds/bg_content_home.png);
+  background-repeat: repeat-y;
+  background-size: contain;
+}
+
+/* Circles */
+.circle-1 {
+  background: #fff;
+  border-radius: 65% 65% 67% 70%/50% 72% 85% 50%;
+  animation: border-animation 6s infinite linear;
+  border: 3px solid #8c6d6585;
+}
+
+.daihyo-messeage {
+  border-radius: 91% 35% 100% 52%/92% 72% 94% 38%;
+  animation: border-animation 6s infinite linear;
+}
+.daihyo-message-content {
+  background-color: #8c6d65de;
+  border-radius: 65% 65% 67% 70%/50% 72% 85% 50%;
+}
+.desktop-carousel {
+  height: 50vh;
 }
 </style>

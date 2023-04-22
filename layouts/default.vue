@@ -18,7 +18,6 @@ const drawer = ref(false);
       <v-app-bar :elevation="0" height="24px" flat color="#fffbf494">
         <template v-slot:append>
           <base-animation v-if="$device.isMobile"><v-btn :icon="mdiMenu" @click="drawer = !drawer" color="#8c6d65" /></base-animation>
-
           <div v-if="$device.isDesktop" class="flex items-center h-24 pl-2 pr-16">
             <base-animation v-ripple align="center" class="cursor-pointer uru-menu" @click="goToContact()">
               <v-icon size="32px" color="#e4e284" class="uru-menu-img">{{ mdiEmail }}</v-icon>
