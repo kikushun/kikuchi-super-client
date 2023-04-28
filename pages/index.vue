@@ -5,6 +5,9 @@ import { mdiLinkBoxVariantOutline } from "@mdi/js";
 const showNum = ref(0);
 setInterval(() => {
   if (showNum.value === 0) showNum.value = 1;
+  else if (showNum.value === 1) showNum.value = 2;
+  else if (showNum.value === 2) showNum.value = 3;
+  else if (showNum.value === 3) showNum.value = 4;
   else showNum.value = 0;
 }, 5000);
 
@@ -15,8 +18,8 @@ const showNumClass = computed(() => (num: number) => {
     transition: true,
     "duration-[4000ms]": true,
     "ease-in-out": true,
-    "opacity-0": num !== showNum.value || num === 3,
-    "opacity-100": num === showNum.value || num === 3,
+    "opacity-0": num !== showNum.value,
+    "opacity-100": num === showNum.value,
   };
 });
 
@@ -44,8 +47,11 @@ const goToEvent = (id: number) => {
         <v-col cols="2"></v-col>
         <v-col cols="8">
           <base-animation class="relative w-full">
-            <img src="https://dvso56c4dpyp.cloudfront.net/image_desktop_1.png" :class="showNumClass(0)" class="w-full desktop-img" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/image_desktop_2.png" :class="showNumClass(1)" class="w-full desktop-img" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="w-full desktop-img" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="w-full desktop-img" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="w-full desktop-img" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="w-full desktop-img" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="w-full desktop-img" />
           </base-animation>
         </v-col>
         <v-col cols="2"></v-col>
@@ -169,9 +175,11 @@ const goToEvent = (id: number) => {
 
     <template v-if="$device.isMobile">
       <base-animation class="relative h-80">
-        <img src="https://dvso56c4dpyp.cloudfront.net/c_1.png" :class="showNumClass(0)" class="w-full z-20" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/c_2.png" :class="showNumClass(1)" class="w-full z-20" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/c_3.png" :class="showNumClass(3)" class="w-full z-20" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_1_mb.png" :class="showNumClass(0)" class="w-full mb-img" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_2_mb.png" :class="showNumClass(1)" class="w-full mb-img" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_3_mb.png" :class="showNumClass(2)" class="w-full mb-img" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_4_mb.png" :class="showNumClass(3)" class="w-full mb-img" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_5_mb.png" :class="showNumClass(4)" class="w-full mb-img" />
       </base-animation>
 
       <!-- <v-container fluid :class="{ 'px-8': $device.isDesktop, 'px-2': $device.isMobile }">
@@ -455,13 +463,11 @@ ul li {
 }
 
 .top {
-  background-image: url(https://www.kohoku-yochien.com/wp-content/themes/kohoku-yochien/assets/images/backgrounds/bg_content_home.png);
   background-repeat: repeat-y;
   background-size: contain;
 }
 
 .top-desktop {
-  background-image: url(https://www.kohoku-yochien.com/wp-content/themes/kohoku-yochien/assets/images/backgrounds/bg_pink.png);
   background-repeat: repeat-y;
   background-size: cover;
 }
@@ -491,5 +497,8 @@ ul li {
 }
 .desktop-img {
   border-radius: 0% 0% 250% 250%;
+}
+.mb-img {
+  border-radius: 0% 0% 100% 100%;
 }
 </style>

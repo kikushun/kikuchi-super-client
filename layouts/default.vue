@@ -13,144 +13,142 @@ const goToContact = () => {
 const drawer = ref(false);
 </script>
 <template>
-  <div class="base-background-color">
-    <v-app>
-      <v-app-bar :elevation="0" height="24px" flat color="#fffbf494">
-        <template v-slot:append>
-          <base-animation v-if="$device.isMobile"><v-btn :icon="mdiMenu" @click="drawer = !drawer" color="#8c6d65" /></base-animation>
-          <div v-if="$device.isDesktop" class="flex items-center h-24 pl-2 pr-16">
-            <base-animation v-ripple align="center" class="cursor-pointer uru-menu" @click="goToContact()">
-              <v-icon size="32px" color="#e4e284" class="uru-menu-img">{{ mdiEmail }}</v-icon>
-              <h2 class="text-urubrown text-20b">お問い合わせ</h2>
-            </base-animation>
-          </div>
-        </template>
-        <v-row no-gutters :class="{ 'px-16': $device.isDesktop }">
-          <v-col cols="auto">
-            <nuxt-link to="/">
-              <v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_logo.png" class="w-24 h-24" />
-            </nuxt-link>
-          </v-col>
-          <v-col cols="auto">
-            <nuxt-link to="/">
-              <base-animation class="flex items-center h-24">
-                <h1 class="text-urubrown">
-                  <div class="text-20">一般社団法人</div>
-                  <div class="text-28b">うるの木</div>
-                </h1>
-              </base-animation>
-            </nuxt-link>
-          </v-col>
-          <template v-if="$device.isDesktop">
-            <v-col cols="auto" class="ml-8">
-              <div class="flex items-center h-24">
-                <v-menu open-on-hover :close-delay="0" :open-delay="0" transition="slide-y-transition">
-                  <template v-slot:activator="{ props }">
-                    <base-animation v-ripple v-bind="props" align="center" class="cursor-pointer uru-menu">
-                      <v-img src="https://dvso56c4dpyp.cloudfront.net/red_circle.png" class="w-8 uru-menu-img" />
-                      <h2 class="text-urubrown text-20b">ごあいさつ</h2>
-                    </base-animation>
-                  </template>
-                  <v-list class="px-1 py-1">
-                    <v-list-item class="cursor-pointer title">
-                      <v-list-item-title class="text-urubrown pa-2 uru-sub-menu text-20b"><nuxt-link to="/representative-greeting">代表メッセージ</nuxt-link></v-list-item-title>
-                      <v-divider />
-                      <v-list-item-title class="text-urubrown pa-2 uru-sub-menu text-20b"><nuxt-link to="/director-introduction">理事紹介</nuxt-link></v-list-item-title>
-                    </v-list-item>
-                  </v-list>
-                </v-menu>
-              </div>
-            </v-col>
-            <v-col cols="auto" class="ml-8">
-              <div class="flex items-center h-24">
-                <base-animation v-ripple align="center" class="cursor-pointer uru-menu" @click="goToEventList()">
-                  <v-img src="https://dvso56c4dpyp.cloudfront.net/green_circle.png" class="w-8 uru-menu-img" />
-                  <h2 class="text-urubrown text-20b">イベント情報</h2>
-                </base-animation>
-              </div>
-            </v-col>
-            <v-col cols="auto" class="ml-8">
-              <div class="flex items-center h-24">
-                <base-animation v-ripple align="center" class="cursor-pointer uru-menu" @click="goToDanation()">
-                  <v-img src="https://dvso56c4dpyp.cloudfront.net/pink_circle.png" class="w-8 uru-menu-img" />
-                  <h2 class="text-urubrown text-20b">寄付のお願い</h2>
-                </base-animation>
-              </div>
-            </v-col>
-          </template>
-        </v-row>
-      </v-app-bar>
-      <v-navigation-drawer v-model="drawer" temporary location="right" color="#f0e37c">
-        <div class="mt-32 mx-4 text-urubrown text-18b">
-          <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
-            <v-col class="pl-4">
-              <div class="flex items-center h-12"><nuxt-link to="/representative-greeting" class="text-urubrown">代表メッセージ</nuxt-link></div>
-            </v-col>
-            <v-col cols="auto" class="pr-4">
-              <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
-            </v-col>
-          </v-row>
-          <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
-            <v-col class="pl-4">
-              <div class="flex items-center h-12"><nuxt-link to="/director-introduction" class="text-urubrown">理事紹介</nuxt-link></div>
-            </v-col>
-            <v-col cols="auto" class="pr-4">
-              <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
-            </v-col>
-          </v-row>
-          <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
-            <v-col class="pl-4">
-              <div class="flex items-center h-12"><nuxt-link to="/notice" class="text-urubrown">お知らせ</nuxt-link></div>
-            </v-col>
-            <v-col cols="auto" class="pr-4">
-              <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
-            </v-col>
-          </v-row>
-          <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
-            <v-col class="pl-4">
-              <div class="flex items-center h-12"><nuxt-link to="/event" class="text-urubrown">イベント情報</nuxt-link></div>
-            </v-col>
-            <v-col cols="auto" class="pr-4">
-              <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
-            </v-col>
-          </v-row>
-          <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
-            <v-col class="pl-4">
-              <div class="flex items-center h-12"><nuxt-link to="/donation" class="text-urubrown">寄付のお願い</nuxt-link></div>
-            </v-col>
-            <v-col cols="auto" class="pr-4">
-              <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
-            </v-col>
-          </v-row>
-          <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
-            <v-col class="pl-4">
-              <div class="flex items-center h-12"><nuxt-link to="/donation" class="text-urubrown">WACCA</nuxt-link></div>
-            </v-col>
-            <v-col cols="auto" class="pr-4">
-              <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
-            </v-col>
-          </v-row>
-          <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
-            <v-col class="pl-4">
-              <div class="flex items-center h-12"><nuxt-link to="/donation" class="text-urubrown">児童発達支援</nuxt-link></div>
-            </v-col>
-            <v-col cols="auto" class="pr-4">
-              <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
-            </v-col>
-          </v-row>
-          <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
-            <v-col class="pl-4">
-              <div class="flex items-center h-12"><nuxt-link to="/contact" class="text-urubrown">お問い合わせ</nuxt-link></div>
-            </v-col>
-            <v-col cols="auto" class="pr-4">
-              <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
-            </v-col>
-          </v-row>
+  <v-app>
+    <v-app-bar :elevation="0" height="24px" flat color="#ffffff80">
+      <template v-slot:append>
+        <base-animation v-if="$device.isMobile"><v-btn :icon="mdiMenu" @click="drawer = !drawer" color="#8c6d65" /></base-animation>
+        <div v-if="$device.isDesktop" class="flex items-center h-24 pl-2 pr-16">
+          <base-animation v-ripple align="center" class="cursor-pointer uru-menu" @click="goToContact()">
+            <v-icon size="32px" color="#e4e284" class="uru-menu-img">{{ mdiEmail }}</v-icon>
+            <h2 class="text-urubrown text-20b">お問い合わせ</h2>
+          </base-animation>
         </div>
-      </v-navigation-drawer>
-      <slot />
-    </v-app>
-  </div>
+      </template>
+      <v-row no-gutters :class="{ 'px-16': $device.isDesktop }">
+        <v-col cols="auto">
+          <nuxt-link to="/">
+            <v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_logo.png" class="w-24 h-24" />
+          </nuxt-link>
+        </v-col>
+        <v-col cols="auto">
+          <nuxt-link to="/">
+            <base-animation class="flex items-center h-24">
+              <h1 class="text-urubrown">
+                <div class="text-20">一般社団法人</div>
+                <div class="text-28b">うるの木</div>
+              </h1>
+            </base-animation>
+          </nuxt-link>
+        </v-col>
+        <template v-if="$device.isDesktop">
+          <v-col cols="auto" class="ml-8">
+            <div class="flex items-center h-24">
+              <v-menu open-on-hover :close-delay="0" :open-delay="0" transition="slide-y-transition">
+                <template v-slot:activator="{ props }">
+                  <base-animation v-ripple v-bind="props" align="center" class="cursor-pointer uru-menu">
+                    <v-img src="https://dvso56c4dpyp.cloudfront.net/red_circle.png" class="w-8 uru-menu-img" />
+                    <h2 class="text-urubrown text-20b">ごあいさつ</h2>
+                  </base-animation>
+                </template>
+                <v-list class="px-1 py-1">
+                  <v-list-item class="cursor-pointer title">
+                    <v-list-item-title class="text-urubrown pa-2 uru-sub-menu text-20b"><nuxt-link to="/representative-greeting">代表メッセージ</nuxt-link></v-list-item-title>
+                    <v-divider />
+                    <v-list-item-title class="text-urubrown pa-2 uru-sub-menu text-20b"><nuxt-link to="/director-introduction">理事紹介</nuxt-link></v-list-item-title>
+                  </v-list-item>
+                </v-list>
+              </v-menu>
+            </div>
+          </v-col>
+          <v-col cols="auto" class="ml-8">
+            <div class="flex items-center h-24">
+              <base-animation v-ripple align="center" class="cursor-pointer uru-menu" @click="goToEventList()">
+                <v-img src="https://dvso56c4dpyp.cloudfront.net/green_circle.png" class="w-8 uru-menu-img" />
+                <h2 class="text-urubrown text-20b">イベント情報</h2>
+              </base-animation>
+            </div>
+          </v-col>
+          <v-col cols="auto" class="ml-8">
+            <div class="flex items-center h-24">
+              <base-animation v-ripple align="center" class="cursor-pointer uru-menu" @click="goToDanation()">
+                <v-img src="https://dvso56c4dpyp.cloudfront.net/pink_circle.png" class="w-8 uru-menu-img" />
+                <h2 class="text-urubrown text-20b">寄付のお願い</h2>
+              </base-animation>
+            </div>
+          </v-col>
+        </template>
+      </v-row>
+    </v-app-bar>
+    <v-navigation-drawer v-model="drawer" temporary location="right" color="#f0e37c">
+      <div class="mt-32 mx-4 text-urubrown text-18b">
+        <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
+          <v-col class="pl-4">
+            <div class="flex items-center h-12"><nuxt-link to="/representative-greeting" class="text-urubrown">代表メッセージ</nuxt-link></div>
+          </v-col>
+          <v-col cols="auto" class="pr-4">
+            <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
+          <v-col class="pl-4">
+            <div class="flex items-center h-12"><nuxt-link to="/director-introduction" class="text-urubrown">理事紹介</nuxt-link></div>
+          </v-col>
+          <v-col cols="auto" class="pr-4">
+            <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
+          <v-col class="pl-4">
+            <div class="flex items-center h-12"><nuxt-link to="/notice" class="text-urubrown">お知らせ</nuxt-link></div>
+          </v-col>
+          <v-col cols="auto" class="pr-4">
+            <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
+          <v-col class="pl-4">
+            <div class="flex items-center h-12"><nuxt-link to="/event" class="text-urubrown">イベント情報</nuxt-link></div>
+          </v-col>
+          <v-col cols="auto" class="pr-4">
+            <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
+          <v-col class="pl-4">
+            <div class="flex items-center h-12"><nuxt-link to="/donation" class="text-urubrown">寄付のお願い</nuxt-link></div>
+          </v-col>
+          <v-col cols="auto" class="pr-4">
+            <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
+          <v-col class="pl-4">
+            <div class="flex items-center h-12"><nuxt-link to="/donation" class="text-urubrown">WACCA</nuxt-link></div>
+          </v-col>
+          <v-col cols="auto" class="pr-4">
+            <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
+          <v-col class="pl-4">
+            <div class="flex items-center h-12"><nuxt-link to="/donation" class="text-urubrown">児童発達支援</nuxt-link></div>
+          </v-col>
+          <v-col cols="auto" class="pr-4">
+            <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
+          </v-col>
+        </v-row>
+        <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
+          <v-col class="pl-4">
+            <div class="flex items-center h-12"><nuxt-link to="/contact" class="text-urubrown">お問い合わせ</nuxt-link></div>
+          </v-col>
+          <v-col cols="auto" class="pr-4">
+            <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
+          </v-col>
+        </v-row>
+      </div>
+    </v-navigation-drawer>
+    <slot />
+  </v-app>
 </template>
 <style lang="postcss" scoped>
 .base-background-color {
