@@ -79,7 +79,7 @@ const drawer = ref(false);
         </template>
       </v-row>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" temporary location="right" color="#f0e37c">
+    <v-navigation-drawer v-model="drawer" temporary location="right" color="#ede28d">
       <div class="mt-32 mx-4 text-urubrown text-18b">
         <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
           <v-col class="pl-4">
@@ -147,14 +147,17 @@ const drawer = ref(false);
         </v-row>
       </div>
     </v-navigation-drawer>
-    <slot />
+    <div class="base-background">
+      <slot />
+    </div>
   </v-app>
 </template>
 <style lang="postcss" scoped>
-.base-background-color {
-  background-color: #fffbf4;
+.base-background {
+  background-image: url("https://dvso56c4dpyp.cloudfront.net/urunoki_base_background.png");
+  background-repeat: repeat-y;
+  background-size: contain;
 }
-
 .title {
   color: #8c6d65;
   position: relative;

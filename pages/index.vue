@@ -44,17 +44,22 @@ const goToEvent = (id: number) => {
   <div>
     <template v-if="$device.isDesktop">
       <v-row no-gutters>
-        <v-col cols="2"></v-col>
-        <v-col cols="8">
+        <v-col cols="1"></v-col>
+        <v-col cols="10">
           <base-animation class="relative w-full">
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="w-full desktop-img" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="w-full desktop-img" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="w-full desktop-img" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="w-full desktop-img" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="w-full desktop-img" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="w-full desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="w-full desktop-img px-16 pb-16" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="w-full desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="w-full desktop-img px-16 pb-16" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="w-full desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="w-full desktop-img px-16 pb-16" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="w-full desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="w-full desktop-img px-16 pb-16" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="w-full desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="w-full desktop-img px-16 pb-16" />
           </base-animation>
         </v-col>
-        <v-col cols="2"></v-col>
+        <v-col cols="1"></v-col>
       </v-row>
 
       <div class="h-[50vh]"></div>
@@ -175,34 +180,20 @@ const goToEvent = (id: number) => {
 
     <template v-if="$device.isMobile">
       <base-animation class="relative h-80">
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_1_mb.png" :class="showNumClass(0)" class="w-full mb-img" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_2_mb.png" :class="showNumClass(1)" class="w-full mb-img" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_3_mb.png" :class="showNumClass(2)" class="w-full mb-img" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_4_mb.png" :class="showNumClass(3)" class="w-full mb-img" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_5_mb.png" :class="showNumClass(4)" class="w-full mb-img" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_1_mb.png" :class="showNumClass(0)" class="w-full mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_1_mb.png" :class="showNumClass(0)" class="w-full mb-img px-4 pb-4" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_2_mb.png" :class="showNumClass(1)" class="w-full mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_2_mb.png" :class="showNumClass(1)" class="w-full mb-img px-4 pb-4" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_3_mb.png" :class="showNumClass(2)" class="w-full mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_3_mb.png" :class="showNumClass(2)" class="w-full mb-img px-4 pb-4" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_4_mb.png" :class="showNumClass(3)" class="w-full mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_4_mb.png" :class="showNumClass(3)" class="w-full mb-img px-4 pb-4" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_5_mb.png" :class="showNumClass(4)" class="w-full mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_5_mb.png" :class="showNumClass(4)" class="w-full mb-img px-4 pb-4" />
       </base-animation>
-
-      <!-- <v-container fluid :class="{ 'px-8': $device.isDesktop, 'px-2': $device.isMobile }">
-      <base-animation v-if="$device.isDesktop" class="relative h-[70vh]">
-        <div class="leading-loose pl-8 absolute h-full flex items-center text-urubrown text-20b z-30" align="center">
-          一般社団法人うるの木では<br />
-          ”様々な事業活動を通じ、「多様性」の理解を推進し、<br />
-          個々の特性や環境の違いを「面白い」と思える心を育み、<br />
-          ともに成長し、ともに笑いあえる地域社会を創造する“<br />
-          ことを基本理念とし、医療ケアや障がいなど、<br />
-          どんな特性を持った子どもでも<br />
-          一度しかない子ども時代を<br />
-          子どもらしく駆けぬけて欲しいという願いを待ち、<br />
-          子どもたちの居場所作りや家族支援，<br />
-          個々を認め合う地域作りに取り組んでいます。
-        </div>
-        <img src="https://dvso56c4dpyp.cloudfront.net/carousel_7.png" :class="showNumClass(0)" class="h-full z-20" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/carousel_8.png" :class="showNumClass(1)" class="h-full z-20" />
-      </base-animation>
-    </v-container> -->
 
       <div class="top mt-20">
-        <div class="circle-1 pa-10">
+        <div class="circle-1 pa-10 mx-1">
           <base-title>メッセージ</base-title>
           <div class="leading-loose text-urubrown text-14b pt-4">
             一般社団法人うるの木では 様々な事業活動を通じ、「多様性」の理解を推進し、個々の特性や環境の違いを「面白い」と思える心を育み、ともに成長し、ともに笑いあえる地域社会を創造する“ことを基本理念とし、医療ケアや障がいなど、どんな特性を持った子どもでも一度しかない子ども時代を子どもらしく駆けぬけて欲しいという願いを待ち、
@@ -366,6 +357,9 @@ const goToEvent = (id: number) => {
   </div>
 </template>
 <style lang="postcss" scoped>
+.back-background {
+  filter: opacity(0.3);
+}
 .title {
   color: #8c6d65;
   position: relative;
