@@ -44,8 +44,8 @@ const goToEvent = (id: number) => {
   <div>
     <template v-if="$device.isDesktop">
       <v-row no-gutters>
-        <v-col cols="1"></v-col>
-        <v-col cols="10">
+        <v-col cols="2"></v-col>
+        <v-col cols="8">
           <base-animation class="relative w-full">
             <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="w-full desktop-img back-background" />
             <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="w-full desktop-img px-16 pb-16" />
@@ -59,13 +59,14 @@ const goToEvent = (id: number) => {
             <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="w-full desktop-img px-16 pb-16" />
           </base-animation>
         </v-col>
-        <v-col cols="1"></v-col>
+        <v-col cols="2"></v-col>
       </v-row>
 
       <div class="h-[50vh]"></div>
       <div class="top-desktop mt-20 min-h-screen w-screen">
         <v-container class="px-4">
-          <v-row no-gutters class="pt-20">
+          <v-row no-gutters class="pt-20"
+            >2
             <v-col cols="3"></v-col>
             <v-col cols="6">
               <div class="circle-1-desktop pa-10">
