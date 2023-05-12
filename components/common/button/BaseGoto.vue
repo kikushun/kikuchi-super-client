@@ -15,7 +15,7 @@ const goToPage = () => {
 };
 </script>
 <template>
-  <v-btn variant="text" class="mb-10" @click="goToPage()">
+  <v-btn variant="text" class="mb-5" @click="goToPage()">
     <v-icon class="text-urubrown">{{ mdiMenuLeft }}</v-icon>
     <span class="text-urubrown">{{ props.title }}</span>
   </v-btn>

@@ -7,7 +7,8 @@ module.exports = {
         uruyellow: '#f0e37c',
         urupink: '#e592a9',
         urugreen: '#96c993',
-        urublue: '#98b4ca'
+        urublue: '#98b4ca',
+        urublack: '#4c4c4c'
       },
     },
   }

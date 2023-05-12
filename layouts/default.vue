@@ -52,9 +52,9 @@ const drawer = ref(false);
                 </template>
                 <v-list class="px-1 py-1">
                   <v-list-item class="cursor-pointer title">
-                    <v-list-item-title class="text-urubrown pa-2 uru-sub-menu text-20b"><nuxt-link to="/representative-greeting">代表メッセージ</nuxt-link></v-list-item-title>
+                    <v-list-item-title class="text-urubrown pa-2 uru-sub-menu text-20b"><nuxt-link to="/representative-director">代表理事</nuxt-link></v-list-item-title>
                     <v-divider />
-                    <v-list-item-title class="text-urubrown pa-2 uru-sub-menu text-20b"><nuxt-link to="/director-introduction">理事紹介</nuxt-link></v-list-item-title>
+                    <v-list-item-title class="text-urubrown pa-2 uru-sub-menu text-20b"><nuxt-link to="/directors">理事紹介</nuxt-link></v-list-item-title>
                   </v-list-item>
                 </v-list>
               </v-menu>
@@ -83,7 +83,7 @@ const drawer = ref(false);
       <div class="mt-32 mx-4 text-urubrown text-18b">
         <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
           <v-col class="pl-4">
-            <div class="flex items-center h-12"><nuxt-link to="/representative-greeting" class="text-urubrown">代表メッセージ</nuxt-link></div>
+            <div class="flex items-center h-12"><nuxt-link to="/representative-director" class="text-urubrown">代表理事</nuxt-link></div>
           </v-col>
           <v-col cols="auto" class="pr-4">
             <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
@@ -91,7 +91,7 @@ const drawer = ref(false);
         </v-row>
         <v-row no-gutters v-ripple class="h-12 mt-2 bg-[#ffffffb0]">
           <v-col class="pl-4">
-            <div class="flex items-center h-12"><nuxt-link to="/director-introduction" class="text-urubrown">理事紹介</nuxt-link></div>
+            <div class="flex items-center h-12"><nuxt-link to="/directors" class="text-urubrown">理事紹介</nuxt-link></div>
           </v-col>
           <v-col cols="auto" class="pr-4">
             <div class="flex items-center h-12"><span class="dli-caret-circle-fill-right"></span></div>
@@ -147,7 +147,7 @@ const drawer = ref(false);
         </v-row>
       </div>
     </v-navigation-drawer>
-    <div class="base-background">
+    <div :class="{ 'background-size-pc': $device.isDesktop, 'background-size-sp': $device.isMobile }" class="base-background">
       <slot />
     </div>
   </v-app>
@@ -155,7 +155,14 @@ const drawer = ref(false);
 <style lang="postcss" scoped>
 .base-background {
   background-image: url("https://dvso56c4dpyp.cloudfront.net/urunoki_base_background.png");
-  background-repeat: repeat-y;
+  background-repeat: repeat;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+.background-size-pc {
+  background-size: 40%;
+}
+.background-size-sp {
   background-size: contain;
 }
 .title {
