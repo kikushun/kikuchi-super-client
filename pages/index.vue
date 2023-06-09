@@ -14,7 +14,6 @@ setInterval(() => {
 const showNumClass = computed(() => (num: number) => {
   return {
     absolute: true,
-    "right-0": true,
     transition: true,
     "duration-[4000ms]": true,
     "ease-in-out": true,
@@ -42,166 +41,23 @@ const goToEvent = (id: number) => {
 
 <template>
   <div>
-    <template v-if="$device.isDesktop">
-      <v-row no-gutters>
-        <v-col cols="2"></v-col>
-        <v-col cols="8">
-          <base-animation class="relative w-full">
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="w-full desktop-img back-background" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="w-full desktop-img px-16 pb-16" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="w-full desktop-img back-background" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="w-full desktop-img px-16 pb-16" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="w-full desktop-img back-background" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="w-full desktop-img px-16 pb-16" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="w-full desktop-img back-background" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="w-full desktop-img px-16 pb-16" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="w-full desktop-img back-background" />
-            <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="w-full desktop-img px-16 pb-16" />
-          </base-animation>
-        </v-col>
-        <v-col cols="2"></v-col>
-      </v-row>
-
-      <div class="h-[50vh]"></div>
-      <div class="top-desktop mt-20 min-h-screen w-screen">
-        <v-container class="px-4">
-          <v-row no-gutters class="pt-20"
-            >2
-            <v-col cols="3"></v-col>
-            <v-col cols="6">
-              <div class="circle-1-desktop pa-10">
-                <base-title>メッセージ</base-title>
-                <div class="text-urubrown text-18b leading-loose">
-                  一般社団法人うるの木では<br />
-                  ”様々な事業活動を通じ、「多様性」の理解を推進し、<br />
-                  個々の特性や環境の違いを「面白い」と思える心を育み、<br />
-                  ともに成長し、ともに笑いあえる地域社会を創造する“<br />
-                  ことを基本理念とし、医療ケアや障がいなど、<br />
-                  どんな特性を持った子どもでも<br />
-                  一度しかない子ども時代を<br />
-                  子どもらしく駆けぬけて欲しいという願いを待ち、<br />
-                  子どもたちの居場所作りや家族支援，<br />
-                  個々を認め合う地域作りに取り組んでいます。
-                </div>
-              </div>
-            </v-col>
-            <v-col cols="3"></v-col>
-          </v-row>
-          <base-animation class="px-4 py-20">
-            <base-title>お知らせ</base-title>
-            <ul class="mt-4 text-urubrown notice-wrapper">
-              <li v-for="notice in noticeList" :key="`notice_${notice.id}`" class="notice mb-1 pa-1" v-ripple @click="goToNotice(notice.id)">
-                <v-row no-gutters class="cursor-pointer">
-                  <v-col cols="11" class="pl-4 py-2">
-                    <v-row no-gutters class="text-16b">
-                      <v-col cols="auto" class="text-14">{{ notice.postedDateDisplay }}</v-col>
-                      <v-col class="whitespace-nowrap text-ellipsis overflow-hidden pl-4">{{ notice.title }}</v-col>
-                    </v-row>
-                    <div class="text-16 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ notice.message }}</div>
-                  </v-col>
-                  <v-col cols="1">
-                    <v-row no-gutters>
-                      <v-col cols="6"></v-col>
-                      <v-col cols="6" class="pt-2">
-                        <div class="flex items-center h-12">
-                          <span class="dli-caret-circle-fill-right"></span>
-                        </div>
-                      </v-col>
-                    </v-row>
-                  </v-col>
-                </v-row>
-              </li>
-            </ul>
-          </base-animation>
-          <v-row no-gutters class="bg-[#ffffffb8] pa-4 mt-10">
-            <v-col cols="4">
-              <v-img src="https://dvso56c4dpyp.cloudfront.net/daihyo_riji.png" class="w-full daihyo-img" />
-            </v-col>
-            <v-col cols="8" class="pl-8">
-              <v-row no-gutters align-content="end" align="end" class="pt-4">
-                <v-col cols="auto" class="text-urubrown text-32b pr-3">代表理事</v-col>
-                <v-col cols="auto" class="text-40b text-urublack pl-3">
-                  <ruby>長岐<rt>ながき</rt>&nbsp;裕美<rt>ひろみ</rt></ruby>
-                </v-col>
-              </v-row>
-              <div class="text-24 text-urublack pt-4">
-                <div class="mb-1">株式会社ながき　夫婦経営</div>
-                <div class="mb-1">ながき鍼灸整骨院副院長</div>
-                <div class="mb-1">鍼灸師/エステティシャン</div>
-                <div class="mb-1">のびのび遊べる・つながる場</div>
-                <div class="mb-4">wacca代表</div>
-                <div class="mb-1">強烈個性派3兄妹の母</div>
-                <div class="mb-1">第2子 ダウン症</div>
-                <div class="mb-1">第3子先天性心疾患（根治済）</div>
-                <div class="mb-1">NHK目撃！にっぽん</div>
-                <div class="mb-1">妹が生まれなかったかもしれない世界</div>
-                <div class="mb-1">〜出生前診断と向き合って〜出演</div>
-              </div>
-            </v-col>
-          </v-row>
-          <v-row no-gutters class="mt-10">
-            <v-col cols="6">
-              <base-animation class="px-4">
-                <base-title>理事紹介</base-title>
-                <div class="text-urubrown text-18b leading-loose pl-28 pt-8">
-                  代表理事 長岐 裕美<br />
-                  株式会社ながき 夫婦経営<br />
-                  ながき鍼灸整骨院 副院長<br />
-                  鍼灸師/エステティシャン<br />
-                  のびのび遊べる・つながる場<br />
-                  wacca代表<br />
-                </div>
-              </base-animation>
-            </v-col>
-            <v-col cols="6">
-              <v-img src="https://dvso56c4dpyp.cloudfront.net/representative_greeting.jpeg" class="w-full daihyo-messeage" />
-            </v-col>
-          </v-row>
-          <base-animation class="px-4 py-20">
-            <base-title>イベント情報</base-title>
-            <ul class="mt-4 text-urubrown event-wrapper">
-              <li v-for="eventData in eventList" :key="`event_${eventData.id}`" class="event mb-1 pa-1" v-ripple @click="goToEvent(eventData.id)">
-                <v-row no-gutters class="cursor-pointer">
-                  <v-col cols="11" class="pl-4 py-2">
-                    <v-row no-gutters class="text-16b">
-                      <v-col class="text-14">{{ eventData.insertDateDisplay }}</v-col>
-                      <v-col cols="auto" class="whitespace-nowrap text-ellipsis overflow-hidden pl-4">{{ eventData.title }}</v-col>
-                    </v-row>
-                    <div class="text-16 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ eventData.content }}</div>
-                  </v-col>
-                  <v-col cols="1">
-                    <v-row no-gutters>
-                      <v-col cols="6"></v-col>
-                      <v-col cols="6">
-                        <div class="flex items-center h-12">
-                          <span class="dli-caret-circle-fill-right"></span>
-                        </div>
-                      </v-col>
-                    </v-row>
-                  </v-col>
-                </v-row>
-              </li>
-            </ul>
-          </base-animation>
-        </v-container>
-      </div>
-    </template>
-
     <template v-if="$device.isMobile">
-      <base-animation class="relative h-80">
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_1_mb.png" :class="showNumClass(0)" class="w-full mb-img back-background" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_1_mb.png" :class="showNumClass(0)" class="w-full mb-img px-4 pb-4" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_2_mb.png" :class="showNumClass(1)" class="w-full mb-img back-background" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_2_mb.png" :class="showNumClass(1)" class="w-full mb-img px-4 pb-4" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_3_mb.png" :class="showNumClass(2)" class="w-full mb-img back-background" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_3_mb.png" :class="showNumClass(2)" class="w-full mb-img px-4 pb-4" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_4_mb.png" :class="showNumClass(3)" class="w-full mb-img back-background" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_4_mb.png" :class="showNumClass(3)" class="w-full mb-img px-4 pb-4" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_5_mb.png" :class="showNumClass(4)" class="w-full mb-img back-background" />
-        <img src="https://dvso56c4dpyp.cloudfront.net/top_5_mb.png" :class="showNumClass(4)" class="w-full mb-img px-4 pb-4" />
+      <base-animation class="relative h-[70vh]">
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="h-full object-cover mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="h-full object-cover mb-img px-4 pb-4" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="h-full object-cover mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="h-full object-cover mb-img px-4 pb-4" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="h-full object-cover mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="h-full object-cover mb-img px-4 pb-4" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="h-full object-cover mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="h-full object-cover mb-img px-4 pb-4" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="h-full object-cover mb-img back-background" />
+        <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="h-full object-cover mb-img px-4 pb-4" />
+
+        <img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_1.png" :class="{ 'w-1/3': $device.isMobile, 'w-1/5': !$device.isMobile }" class="absolute bottom-0 right-0 w-1/3" />
       </base-animation>
 
-      <div class="top mt-20">
+      <div class="top mt-4">
         <div class="circle-1 pa-10 mx-1">
           <base-title>メッセージ</base-title>
           <div class="leading-loose text-urubrown text-14b pt-4">
@@ -210,7 +66,10 @@ const goToEvent = (id: number) => {
           </div>
         </div>
 
-        <v-img src="https://www.kohoku-yochien.com/wp-content/themes/kohoku-yochien/assets/images/home/img_cartoon_05.gif" class="w-1/3"></v-img>
+        <v-row no-gutters>
+          <v-col cols="4" class="pl-4"><v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_2.png" class="w-full" /></v-col>
+          <v-col cols="8"></v-col>
+        </v-row>
 
         <v-container fluid class="px-2">
           <base-animation class="px-4">
@@ -235,9 +94,10 @@ const goToEvent = (id: number) => {
             </ul>
           </base-animation>
 
-          <div align="right">
-            <v-img src="https://www.kohoku-yochien.com/wp-content/themes/kohoku-yochien/assets/images/home/img_cartoon_11.png" class="w-1/5"></v-img>
-          </div>
+          <v-row no-gutters>
+            <v-col cols="8"></v-col>
+            <v-col cols="4" class="pr-4"><v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_3.png" class="w-full" /></v-col>
+          </v-row>
 
           <base-animation class="px-4 pb-4">
             <base-title>イベント情報</base-title>
@@ -261,9 +121,20 @@ const goToEvent = (id: number) => {
             </ul>
           </base-animation>
 
+          <v-row no-gutters>
+            <v-col cols="4" class="pl-4"><v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_4.png" class="w-full" /></v-col>
+            <v-col cols="8"></v-col>
+          </v-row>
+
           <base-animation class="pa-4">
             <base-title>寄付のお願い</base-title>
           </base-animation>
+
+          <v-row no-gutters>
+            <v-col cols="8"></v-col>
+            <v-col cols="4" class="pr-4"><v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_5.png" class="w-full" /></v-col>
+          </v-row>
+
           <base-animation class="pa-4">
             <base-title>リンク</base-title>
           </base-animation>
@@ -331,6 +202,127 @@ const goToEvent = (id: number) => {
               </v-row>
             </a>
           </base-animation>
+          <v-row no-gutters>
+            <v-col cols="4" class="pl-4"><v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy6.png" class="w-full" /></v-col>
+            <v-col cols="8"></v-col>
+          </v-row>
+        </v-container>
+      </div>
+    </template>
+    <template v-if="!$device.isMobile">
+      <v-row no-gutters>
+        <v-col cols="1"></v-col>
+        <v-col cols="10">
+          <base-animation class="relative h-[80vh]">
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="h-full object-cover desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_1.png" :class="showNumClass(0)" class="h-full object-cover desktop-img px-4 pb-4" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="h-full object-cover desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_2.png" :class="showNumClass(1)" class="h-full object-cover desktop-img px-4 pb-4" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="h-full object-cover desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_3.png" :class="showNumClass(2)" class="h-full object-cover desktop-img px-4 pb-4" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="h-full object-cover desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_4.png" :class="showNumClass(3)" class="h-full object-cover desktop-img px-4 pb-4" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="h-full object-cover desktop-img back-background" />
+            <img src="https://dvso56c4dpyp.cloudfront.net/top_5.png" :class="showNumClass(4)" class="h-full object-cover desktop-img px-4 pb-4" />
+
+            <img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy6.png" :class="{ 'w-1/3': $device.isMobile, 'w-1/12': !$device.isMobile }" class="absolute bottom-0 left-0 w-1/3" />
+
+            <img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_1.png" :class="{ 'w-1/3': $device.isMobile, 'w-1/12': !$device.isMobile }" class="absolute bottom-0 right-0 w-1/3" />
+          </base-animation>
+        </v-col>
+        <v-col cols="1"></v-col>
+      </v-row>
+      <div class="top-desktop min-h-screen w-screen">
+        <v-container class="px-4">
+          <v-row no-gutters class="pt-20">
+            <v-col cols="3"></v-col>
+            <v-col cols="6">
+              <div class="circle-1-desktop pa-10">
+                <base-title>メッセージ</base-title>
+                <div class="text-urubrown text-18b leading-loose">
+                  一般社団法人うるの木では<br />
+                  ”様々な事業活動を通じ、「多様性」の理解を推進し、<br />
+                  個々の特性や環境の違いを「面白い」と思える心を育み、<br />
+                  ともに成長し、ともに笑いあえる地域社会を創造する“<br />
+                  ことを基本理念とし、医療ケアや障がいなど、<br />
+                  どんな特性を持った子どもでも<br />
+                  一度しかない子ども時代を<br />
+                  子どもらしく駆けぬけて欲しいという願いを待ち、<br />
+                  子どもたちの居場所作りや家族支援，<br />
+                  個々を認め合う地域作りに取り組んでいます。
+                </div>
+              </div>
+            </v-col>
+            <v-col cols="3"></v-col>
+          </v-row>
+
+          <v-row no-gutters>
+            <v-col cols="1"><v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_2.png" class="w-full" /></v-col>
+            <v-col cols="11"></v-col>
+          </v-row>
+
+          <base-animation class="px-4">
+            <base-title>お知らせ</base-title>
+            <ul class="mt-4 text-urubrown notice-wrapper">
+              <li v-for="notice in noticeList" :key="`notice_${notice.id}`" class="notice mb-1 pa-1" v-ripple @click="goToNotice(notice.id)">
+                <v-row no-gutters class="cursor-pointer">
+                  <v-col cols="11" class="pl-4 py-2">
+                    <v-row no-gutters class="text-16b">
+                      <v-col cols="auto" class="text-14">{{ notice.postedDateDisplay }}</v-col>
+                      <v-col class="whitespace-nowrap text-ellipsis overflow-hidden pl-4">{{ notice.title }}</v-col>
+                    </v-row>
+                    <div class="text-16 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ notice.message }}</div>
+                  </v-col>
+                  <v-col cols="1">
+                    <v-row no-gutters>
+                      <v-col cols="6"></v-col>
+                      <v-col cols="6" class="pt-2">
+                        <div class="flex items-center h-12">
+                          <span class="dli-caret-circle-fill-right"></span>
+                        </div>
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                </v-row>
+              </li>
+            </ul>
+          </base-animation>
+
+          <v-row no-gutters>
+            <v-col cols="11"></v-col>
+            <v-col cols="1"><v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_3.png" class="w-full" /></v-col>
+          </v-row>
+
+          <base-animation class="px-4">
+            <base-title>イベント情報</base-title>
+            <ul class="mt-4 text-urubrown event-wrapper">
+              <li v-for="eventData in eventList" :key="`event_${eventData.id}`" class="event mb-1 pa-1" v-ripple @click="goToEvent(eventData.id)">
+                <v-row no-gutters class="cursor-pointer">
+                  <v-col cols="11" class="pl-4 py-2">
+                    <v-row no-gutters class="text-16b">
+                      <v-col class="text-14">{{ eventData.insertDateDisplay }}</v-col>
+                      <v-col cols="auto" class="whitespace-nowrap text-ellipsis overflow-hidden pl-4">{{ eventData.title }}</v-col>
+                    </v-row>
+                    <div class="text-16 pt-1 whitespace-nowrap text-ellipsis overflow-hidden">{{ eventData.content }}</div>
+                  </v-col>
+                  <v-col cols="1">
+                    <v-row no-gutters>
+                      <v-col cols="6"></v-col>
+                      <v-col cols="6">
+                        <div class="flex items-center h-12">
+                          <span class="dli-caret-circle-fill-right"></span>
+                        </div>
+                      </v-col>
+                    </v-row>
+                  </v-col>
+                </v-row>
+              </li>
+            </ul>
+          </base-animation>
+          <v-row no-gutters>
+            <v-col cols="1"><v-img src="https://dvso56c4dpyp.cloudfront.net/urunoki_boy_4.png" class="w-full" /></v-col>
+            <v-col cols="11"></v-col>
+          </v-row>
         </v-container>
       </div>
     </template>
@@ -476,6 +468,6 @@ ul li {
   border-radius: 0% 0% 250% 250%;
 }
 .mb-img {
-  border-radius: 0% 0% 100% 100%;
+  border-radius: 0% 0% 60% 60%/0% 0% 70% 25%;
 }
 </style>
